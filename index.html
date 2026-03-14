@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Next-Gen Interactive Computer Portfolio</title>
+    <!-- Google Fonts: Poppins for UI, Orbitron for Tech Feel -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="background-effects">
+        <div class="particle-container"></div>
+        <div class="glowing-orb"></div>
+    </div>
+
+    <div class="container">
+        <div class="desktop-setup">
+            <!-- Monitor Setup -->
+            <div class="monitor-container">
+                <div class="monitor-frame">
+                    <div class="monitor-screen off" id="monitor-screen">
+                        <!-- Wallpaper Background -->
+                        <div class="wallpaper hidden" id="wallpaper"></div>
+                        
+                        <!-- Boot Screen Overlay -->
+                        <div class="boot-screen hidden" id="boot-screen">
+                            <div class="boot-logo">CORE OS</div>
+                            <div class="boot-loader"></div>
+                            <p id="boot-text">Initializing System...</p>
+                        </div>
+
+                        <!-- Desktop Environment -->
+                        <div class="desktop-env hidden" id="desktop-env">
+                            <div class="desktop-icons">
+                                <div class="icon" data-window="my-story">
+                                    <div class="icon-img">📖</div>
+                                    <span>My Story</span>
+                                </div>
+                                <div class="icon" data-window="projects">
+                                    <div class="icon-img">🚀</div>
+                                    <span>Projects</span>
+                                </div>
+                                <div class="icon" data-window="skills">
+                                    <div class="icon-img">⚙️</div>
+                                    <span>Skills</span>
+                                </div>
+                                <div class="icon" data-window="contact">
+                                    <div class="icon-img">📡</div>
+                                    <span>Contact</span>
+                                </div>
+                            </div>
+
+                            <!-- Windows -->
+                            <div class="window hidden" id="window-my-story">
+                                <div class="window-header">
+                                    <div class="window-title">
+                                        <span>📖</span> My Story
+                                    </div>
+                                    <div class="window-controls">
+                                        <button class="minimize-btn">-</button>
+                                        <button class="close-btn">&times;</button>
+                                    </div>
+                                </div>
+                                <div class="window-content">
+                                    <div class="story-layout">
+                                        <div class="story-image-container">
+                                            <img src="assets/harryan.jpg" alt="Harryan Rams" class="story-image hidden" id="story-image">
+                                            <div class="image-overlay"></div>
+                                        </div>
+                                        <div id="story-terminal" class="terminal-text"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="window hidden" id="window-projects">
+                                <div class="window-header">
+                                    <div class="window-title">
+                                        <span>🚀</span> Projects
+                                    </div>
+                                    <div class="window-controls">
+                                        <button class="minimize-btn">-</button>
+                                        <button class="close-btn">&times;</button>
+                                    </div>
+                                </div>
+                                <div class="window-content">
+                                    <div class="project-grid">
+                                        <div class="project-card">
+                                            <h4>Compassion-peach</h4>
+                                            <p>An independent project showcasing creative web design and interaction.</p>
+                                        </div>
+                                        <div class="project-card">
+                                            <h4>Cat Photo Gallery</h4>
+                                            <p>A responsive gallery designed to organize and display visual content.</p>
+                                        </div>
+                                        <div class="project-card">
+                                            <h4>Café Menu Design</h4>
+                                            <p>A professional and intuitive digital menu for modern dining experiences.</p>
+                                        </div>
+                                        <div class="project-card">
+                                            <h4>Color Maker App</h4>
+                                            <p>An interactive application for exploring and generating dynamic color schemes.</p>
+                                        </div>
+                                        <div class="project-card">
+                                            <h4>PDF Generator</h4>
+                                            <p>[In Development] A specialized tool for generating professional PDF documents.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="window hidden" id="window-skills">
+                                <div class="window-header">
+                                    <div class="window-title">
+                                        <span>⚙️</span> Skills
+                                    </div>
+                                    <div class="window-controls">
+                                        <button class="minimize-btn">-</button>
+                                        <button class="close-btn">&times;</button>
+                                    </div>
+                                </div>
+                                <div class="window-content">
+                                    <div class="skills-grid">
+                                        <div class="skill-tag">HTML5</div>
+                                        <div class="skill-tag">CSS3</div>
+                                        <div class="skill-tag">JavaScript (ES6+)</div>
+                                        <div class="skill-tag">Hardware Eng</div>
+                                        <div class="skill-tag">UI/UX Design</div>
+                                        <div class="skill-tag">Problem Solving</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="window hidden" id="window-contact">
+                                <div class="window-header">
+                                    <div class="window-title">
+                                        <span>📡</span> Contact
+                                    </div>
+                                    <div class="window-controls">
+                                        <button class="minimize-btn">-</button>
+                                        <button class="close-btn">&times;</button>
+                                    </div>
+                                </div>
+                                <div class="window-content">
+                                    <div class="contact-methods">
+                                        <div class="contact-item"><span>📧</span> creator@portfolio.tech</div>
+                                        <div class="contact-item"><span>🌐</span> compassion-peach.vercel.app</div>
+                                        <div class="contact-item"><span>🔗</span> linkedin.com/in/creator</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="taskbar">
+                                <div class="start-menu-btn"><span>❖</span></div>
+                                <div class="active-apps"></div>
+                                <div class="system-tray">
+                                    <div class="tray-icon">🔊</div>
+                                    <div class="tray-icon">📶</div>
+                                    <div class="clock" id="clock">12:00 PM</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="monitor-stand"></div>
+                <div class="monitor-base"></div>
+            </div>
+
+            <!-- Computer Case -->
+            <div class="case-container">
+                <div class="case-outer" id="pc-case">
+                    <div class="case-front">
+                        <div class="usb-ports"><span></span><span></span></div>
+                        <div class="power-button-case">
+                            <button id="power-btn" class="power-btn-circle"></button>
+                            <span>Power</span>
+                        </div>
+                        <div class="power-light" id="power-light"></div>
+                    </div>
+                    <div class="case-side" id="case-side">
+                        <div class="side-panel" id="side-panel"></div>
+                        <!-- Internal Components -->
+                        <div class="internal-view">
+                            <div class="hw-component motherboard">
+                                <div class="hw-component cpu" data-name="CPU" data-desc="The Brain: Central Processing Unit that handles all instructions.">
+                                    <div class="cpu-fan"></div>
+                                </div>
+                                <div class="ram-slots">
+                                    <div class="hw-component ram" data-name="RAM" data-desc="Short-term Memory: Random Access Memory for quick data access."></div>
+                                    <div class="hw-component ram" data-name="RAM" data-desc="Short-term Memory: Random Access Memory for quick data access."></div>
+                                </div>
+                                <div class="hw-component gpu" data-name="GPU" data-desc="Visual Power: Graphics Processing Unit for rendering images and video.">
+                                    <div class="gpu-fan"></div>
+                                </div>
+                            </div>
+                            <div class="hw-component psu" data-name="PSU" data-desc="Power Source: Converts outlet power for internal use."></div>
+                        </div>
+                    </div>
+                </div>
+                <button id="open-case-btn" class="case-btn">Open Computer Case</button>
+            </div>
+
+            <!-- Peripherals -->
+            <div class="peripherals">
+                <div class="keyboard">
+                    <div class="key-row"></div>
+                </div>
+                <div class="mouse"></div>
+            </div>
+
+            <!-- Decorative Cables -->
+            <div class="cable-group">
+                <div class="cable cable-pc"></div>
+                <div class="cable cable-monitor"></div>
+                <div class="cable cable-kb"></div>
+            </div>
+        </div>
+
+        <!-- Tooltip/Hardware Info -->
+        <div id="hw-tooltip" class="hw-tooltip hidden">
+            <h4 id="hw-title"></h4>
+            <p id="hw-desc"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

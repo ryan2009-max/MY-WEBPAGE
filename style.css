@@ -1,0 +1,599 @@
+/* Modern Tech Aesthetic CSS */
+:root {
+    --bg-color: #050505;
+    --monitor-frame: #1a1a1a;
+    --accent-blue: #00d2ff;
+    --accent-glow: rgba(0, 210, 255, 0.4);
+    --window-bg: rgba(25, 25, 25, 0.95);
+    --taskbar-bg: rgba(10, 10, 10, 0.85);
+    --text-primary: #e0e0e0;
+    --text-secondary: #a0a0a0;
+    --os-bg: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    --card-bg: rgba(255, 255, 255, 0.05);
+}
+
+* {
+    box-sizing: border-box;
+    user-select: none;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    overflow: hidden;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Background Effects */
+.background-effects {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.glowing-orb {
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    filter: blur(80px);
+    opacity: 0.3;
+}
+
+/* Desktop Setup Layout */
+.desktop-setup {
+    display: flex;
+    align-items: flex-end;
+    gap: 80px;
+    padding: 40px;
+    position: relative;
+}
+
+/* Monitor Styling */
+.monitor-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.monitor-frame {
+    width: 700px;
+    height: 450px;
+    background-color: var(--monitor-frame);
+    border: 12px solid #111;
+    border-radius: 25px;
+    position: relative;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.9),
+                inset 0 0 10px rgba(255,255,255,0.1);
+    transition: transform 0.3s ease;
+}
+
+.monitor-screen {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    background-color: #000;
+    transition: background-color 0.8s ease;
+}
+
+.monitor-screen.on {
+    background: var(--os-bg);
+}
+
+.wallpaper {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url('assets/wallpaper.jpg') center/cover no-repeat;
+    opacity: 0.5;
+    filter: brightness(0.7) contrast(1.1);
+    z-index: 1;
+}
+
+/* Boot Animation */
+.boot-screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.boot-logo {
+    font-size: 32px;
+    letter-spacing: 8px;
+    margin-bottom: 40px;
+    color: var(--accent-blue);
+    text-shadow: 0 0 15px var(--accent-blue);
+    animation: pulse 2s infinite;
+}
+
+.boot-loader {
+    width: 200px;
+    height: 2px;
+    background: #222;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.boot-loader::after {
+    content: '';
+    position: absolute;
+    width: 40%;
+    height: 100%;
+    background: var(--accent-blue);
+    animation: loading 2s infinite ease-in-out;
+}
+
+@keyframes loading {
+    0% { left: -40%; }
+    100% { left: 100%; }
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+/* Desktop Icons */
+.desktop-icons {
+    padding: 30px;
+    display: grid;
+    grid-template-columns: repeat(1, 100px);
+    gap: 30px;
+    position: relative;
+    z-index: 5;
+}
+
+.icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.icon:hover {
+    transform: translateY(-5px) scale(1.1);
+}
+
+.icon-img {
+    font-size: 48px;
+    margin-bottom: 8px;
+    filter: drop-shadow(0 5px 10px rgba(0,0,0,0.3));
+}
+
+.icon span {
+    font-size: 13px;
+    font-weight: 400;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+}
+
+/* Window Management */
+.window {
+    position: absolute;
+    top: 50px;
+    left: 150px;
+    width: 450px;
+    height: 320px;
+    background: var(--window-bg);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+    z-index: 10;
+    animation: windowOpen 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes windowOpen {
+    from { transform: scale(0.9) translateY(20px); opacity: 0; }
+    to { transform: scale(1) translateY(0); opacity: 1; }
+}
+
+.window-header {
+    padding: 12px 18px;
+    background: rgba(255,255,255,0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    cursor: move;
+}
+
+.window-title {
+    font-size: 14px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.window-controls {
+    display: flex;
+    gap: 10px;
+}
+
+.window-controls button {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    background: rgba(255,255,255,0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background 0.2s;
+}
+
+.window-controls .close-btn:hover { background: #ff5f56; }
+.window-controls .minimize-btn:hover { background: #ffbd2e; }
+
+/* My Story Layout & Image */
+.story-layout {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.story-image-container {
+    position: relative;
+    width: 140px;
+    min-width: 140px;
+    height: 180px;
+    border: 2px solid var(--accent-blue);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 15px var(--accent-glow);
+    animation: fadeIn 1s ease-out;
+}
+
+.story-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.9) contrast(1.1);
+}
+
+.image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent 80%, rgba(0, 210, 255, 0.2));
+    pointer-events: none;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.window-content {
+    padding: 25px;
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+/* Terminal Typing Effect */
+.terminal-text {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #00ff00;
+}
+
+/* Project Cards */
+.project-grid {
+    display: grid;
+    gap: 15px;
+}
+
+.project-card {
+    background: var(--card-bg);
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.05);
+    transition: background 0.3s;
+}
+
+.project-card:hover {
+    background: rgba(255,255,255,0.1);
+}
+
+.project-card h4 { margin: 0 0 8px 0; color: var(--accent-blue); }
+.project-card p { margin: 0; font-size: 12px; color: var(--text-secondary); }
+
+/* Skills Styling */
+.skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.skill-tag {
+    background: var(--accent-glow);
+    color: white;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 12px;
+    border: 1px solid var(--accent-blue);
+}
+
+/* Taskbar Styling */
+.taskbar {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 45px;
+    background: var(--taskbar-bg);
+    backdrop-filter: blur(15px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 15px;
+    z-index: 1000;
+}
+
+.start-menu-btn {
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: background 0.2s;
+}
+
+.start-menu-btn:hover { background: rgba(255,255,255,0.1); }
+
+.system-tray {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 13px;
+}
+
+/* Computer Case Styling */
+.case-outer {
+    width: 160px;
+    height: 420px;
+    background: #111;
+    border-radius: 10px;
+    position: relative;
+    border: 2px solid #222;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.8);
+    display: flex;
+    flex-direction: column;
+}
+
+.case-front {
+    height: 120px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    background: linear-gradient(to bottom, #1a1a1a, #111);
+}
+
+.usb-ports span {
+    display: inline-block;
+    width: 12px;
+    height: 4px;
+    background: #333;
+    margin: 0 4px;
+    border-radius: 1px;
+}
+
+.case-side {
+    flex-grow: 1;
+    position: relative;
+    overflow: hidden;
+    background: #080808;
+}
+
+.side-panel {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(40, 40, 40, 0.9);
+    z-index: 10;
+    transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    border-left: 2px solid #333;
+}
+
+.case-outer.case-opened .side-panel {
+    transform: translateX(100%);
+}
+
+/* Internal Hardware View */
+.internal-view {
+    padding: 20px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.hw-component {
+    background: #222;
+    border: 1px solid #333;
+    border-radius: 4px;
+    cursor: help;
+    transition: all 0.3s;
+}
+
+.hw-component:hover {
+    border-color: var(--accent-blue);
+    box-shadow: 0 0 15px var(--accent-glow);
+}
+
+.motherboard {
+    height: 220px;
+    background: #1a2a1a;
+    padding: 15px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.cpu {
+    width: 60px;
+    height: 60px;
+    background: #444;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cpu-fan {
+    width: 45px;
+    height: 45px;
+    background: conic-gradient(#222 0deg 90deg, #333 90deg 180deg, #222 180deg 270deg, #333 270deg 360deg);
+    border-radius: 50%;
+    animation: rotate 2s linear infinite;
+}
+
+@keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+@keyframes float {
+    0%, 100% { transform: translateY(0) translateX(0); }
+    50% { transform: translateY(-20px) translateX(10px); }
+}
+
+.ram-slots { display: flex; flex-direction: column; gap: 5px; }
+.ram { width: 10px; height: 80px; background: #333; }
+
+.gpu {
+    grid-column: span 2;
+    height: 50px;
+    background: #111;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gpu-fan {
+    width: 30px;
+    height: 30px;
+    background: radial-gradient(circle, #333, #111);
+    border-radius: 50%;
+}
+
+.psu { height: 80px; width: 100%; background: #111; }
+
+/* Case Button */
+.case-btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: transparent;
+    border: 2px solid #444;
+    color: #888;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 12px;
+    transition: all 0.3s;
+}
+
+.case-btn:hover {
+    border-color: var(--accent-blue);
+    color: white;
+    text-shadow: 0 0 10px var(--accent-blue);
+}
+
+/* Tooltip Styling */
+.hw-tooltip {
+    position: fixed;
+    background: rgba(10, 10, 10, 0.95);
+    padding: 15px 20px;
+    border-radius: 10px;
+    border: 1px solid var(--accent-blue);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+    z-index: 10000;
+    max-width: 250px;
+    pointer-events: none;
+    backdrop-filter: blur(10px);
+}
+
+.hw-tooltip h4 { margin: 0 0 8px 0; color: var(--accent-blue); font-family: 'Orbitron', sans-serif; }
+.hw-tooltip p { margin: 0; font-size: 13px; line-height: 1.5; color: var(--text-secondary); }
+
+/* Peripherals */
+.peripherals {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 60px;
+    align-items: flex-end;
+}
+
+.keyboard {
+    width: 380px;
+    height: 18px;
+    background: #1a1a1a;
+    border-radius: 6px;
+    border-bottom: 4px solid #000;
+}
+
+.mouse {
+    width: 30px;
+    height: 45px;
+    background: #1a1a1a;
+    border-radius: 15px 15px 5px 5px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.5);
+}
+
+/* Responsive Zoom for Mobile */
+@media (max-width: 1024px) {
+    .desktop-setup {
+        transform: scale(0.7);
+    }
+}
+
+@media (max-width: 768px) {
+    .desktop-setup {
+        transform: scale(0.5);
+    }
+}
+
+.particle {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.hidden { display: none !important; }
