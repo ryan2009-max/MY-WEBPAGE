@@ -77,7 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
         icon.addEventListener('click', () => {
             const winId = `window-${icon.dataset.window}`;
             const win = document.getElementById(winId);
-            if (win) {
+            if (win && isPoweredOn) {
                 win.classList.remove('hidden');
                 bringToFront(win);
                 if (icon.dataset.window === 'my-story') startStoryTyping();
@@ -109,6 +109,15 @@ document.addEventListener('DOMContentLoaded', () => {
         document.addEventListener('mouseup', () => isDragging = false);
 
         closeBtn.addEventListener('click', () => win.classList.add('hidden'));
+
+        // Prevent dragging when clicking links inside windows
+        win.addEventListener('click', (e) => {
+            if (e.target.tagName === 'A' || e.target.closest('a')) {
+                // Allow the link to be followed
+                return;
+            }
+            bringToFront(win);
+        });
     });
 
     function bringToFront(win) {

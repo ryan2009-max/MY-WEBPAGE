@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Harryan Interactive Computer Portfolio</title>
+    <title>Harryan Rams Interactive Computer Portfolio</title>
     <!-- Google Fonts: Poppins for UI, Orbitron for Tech Feel -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
@@ -33,6 +33,10 @@
                         <!-- Desktop Environment -->
                         <div class="desktop-env hidden" id="desktop-env">
                             <div class="desktop-icons">
+                                <div class="icon" data-window="system-info">
+                                    <div class="icon-img">💻</div>
+                                    <span>This PC</span>
+                                </div>
                                 <div class="icon" data-window="my-story">
                                     <div class="icon-img">📖</div>
                                     <span>My Story</span>
@@ -49,9 +53,51 @@
                                     <div class="icon-img">📡</div>
                                     <span>Contact</span>
                                 </div>
+                                <div class="icon" data-window="recycle-bin">
+                                    <div class="icon-img">🗑️</div>
+                                    <span>Recycle Bin</span>
+                                </div>
                             </div>
 
                             <!-- Windows -->
+                            <div class="window hidden" id="window-system-info">
+                                <div class="window-header">
+                                    <div class="window-title">
+                                        <span>💻</span> System Information
+                                    </div>
+                                    <div class="window-controls">
+                                        <button class="minimize-btn">-</button>
+                                        <button class="close-btn">&times;</button>
+                                    </div>
+                                </div>
+                                <div class="window-content">
+                                    <div class="system-stats">
+                                        <p><strong>OS:</strong> NOMA v1.0.4</p>
+                                        <p><strong>Kernel:</strong> 6.12.0-portfolio-x64</p>
+                                        <p><strong>Processor:</strong> Virtualized 8-Core CPU</p>
+                                        <p><strong>Memory:</strong> 16.0 GB RAM</p>
+                                        <p><strong>Storage:</strong> 512 GB NVMe SSD</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="window hidden" id="window-recycle-bin">
+                                <div class="window-header">
+                                    <div class="window-title">
+                                        <span>🗑️</span> Recycle Bin
+                                    </div>
+                                    <div class="window-controls">
+                                        <button class="minimize-btn">-</button>
+                                        <button class="close-btn">&times;</button>
+                                    </div>
+                                </div>
+                                <div class="window-content">
+                                    <p style="text-align: center; color: var(--text-secondary); margin-top: 50px;">
+                                        Recycle Bin is empty.
+                                    </p>
+                                </div>
+                            </div>
+
                             <div class="window hidden" id="window-my-story">
                                 <div class="window-header">
                                     <div class="window-title">
@@ -143,16 +189,26 @@
                                 </div>
                                 <div class="window-content">
                                     <div class="contact-methods">
-                                        <div class="contact-item"><span>📧</span> creator@portfolio.tech</div>
-                                        <div class="contact-item"><span>🌐</span> compassion-peach.vercel.app</div>
-                                        <div class="contact-item"><span>🔗</span> linkedin.com/in/creator</div>
+                                        <a href="mailto:harryanrams2007@gmail.com" class="contact-item">
+                                            <span>📧</span> Email: harryanrams2007@gmail.com
+                                        </a>
+                                        <a href="https://compassion-peach.vercel.app" target="_blank" rel="noopener noreferrer" class="contact-item">
+                                            <span>🌐</span> Website: compassion-peach.vercel.app
+                                        </a>
+                                        <a href="https://facebook.com/in/creator" target="_blank" rel="noopener noreferrer" class="contact-item">
+                                            <span>🔗</span> Facebook: facebook.com/in/creator
+                                        </a>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="taskbar">
                                 <div class="start-menu-btn"><span>❖</span></div>
-                                <div class="active-apps"></div>
+                                <div class="active-apps">
+                                    <div class="tray-icon" title="Terminal">💻</div>
+                                    <div class="tray-icon" title="Explorer">📁</div>
+                                    <div class="tray-icon" title="Browser">🌐</div>
+                                </div>
                                 <div class="system-tray">
                                     <div class="tray-icon">🔊</div>
                                     <div class="tray-icon">📶</div>
